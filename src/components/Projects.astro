@@ -1,0 +1,48 @@
+---
+import HTMLIcon from './icons/HTML.astro';
+import TailwindIcon from './icons/Tailwind.astro';
+
+const tags = {
+  HTML: {
+    name: 'HTML',
+    class: 'bg-[#FF5733] text-white',
+    icon: HTMLIcon,
+  },
+  TailwindCSS: {
+    name: 'TailwindCSS',
+    class: 'bg-white text-[#73bcf6]',
+    icon: TailwindIcon,
+  }
+}
+
+const projects = [
+  {
+    title: 'Project 1',
+    description: 'asdads',
+    link: '#',
+    github: '#',
+    image: 'https://via.placeholder.com/300x200',
+    tags: [tags.HTML, tags.TailwindCSS]
+  }
+]
+---
+
+{
+  projects.map(({ title, description, tags, image}) => (
+    <article>
+      <h3 class="text-2xl font-semibold mb-2">{title}</h3>
+      <p class="text-lg mb-4 text-pretty">{description}</p>
+      <ul class="flex gap-x-2 flex-row mb-2">
+        {tags.map(tag => (
+          <li>
+            <span class={`flex gap-x-2 items-center rounded-full text-s ${tag.class} py-1 px-2`}>
+              <tag.icon class="size-4" />
+              {tag.name}
+            </span>
+          </li>
+        ))}
+      </ul>
+      <img class="rounded shadow-2xl shadow-white/10" src={image} alt={`Proyecto: ${title}`} />
+    </article>
+  ))
+}

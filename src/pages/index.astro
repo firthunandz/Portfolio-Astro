@@ -1,16 +1,23 @@
 ---
-import Badge from '../components/Badge.astro';
 import Layout from '../layouts/Layout.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Badge from '../components/Badge.astro';
 import Socials from '../components/Socials.astro';
+import Studies from '../components/Studies.astro';
+import Projects from '../components/Projects.astro';
+
 import LinkedInIcon from '../components/icons/LinkedIn.astro';
 import GitHubIcon from '../components/icons/GitHub.astro';
 import MailIcon from '../components/icons/Mail.astro';
+import StudiesIcon from '../components/icons/StudiesIcon.astro';
+import ProjectsIcon from '../components/icons/ProjectsIcon.astro';
 ---
 
 <Layout title="Fernando Chiesa Portfolio" description="Toda la informacion de Fer y sus trabajos">
-	<main>
-		<section class="w-[740px] mx-auto py-44">
-			<h1 class="text-white text-5xl font-bold flex justify-center flex-row gap-x-4 pb-10">
+	<main class="px-1">
+		<SectionContainer id="home" class="py-44 pb-32">
+			<h1 class="text-white text-3xl md:text-4xl lg:text-5xl font-bold flex flex-col gap-y-2 lg:flex lg:flex-row justify-center items-center lg:gap-x-4 pb-10">
+				<img class="rounded-full size-20" src="/images/me1.jpg" alt="Fer img">
 				Hola, soy Fer! <a
 					href="https://www.linkedin.com/in/fernando-chiesa/" 
 					target="_blank"
@@ -20,13 +27,11 @@ import MailIcon from '../components/icons/Mail.astro';
 					<Badge>Disponible para trabajar</Badge>
 				</a>
 			</h1>
-			<h2 class="text-2xl opacity-80 text-wrap">
+			<h2 class="text-base flex justify-center lg:text-2xl opacity-80 text-wrap max-w-[700px]">
 				+1 año de experiencia. Desarrollador full stack. Argentino
 			</h2>
-
-
-			<nav class="flex gap-x-4 mt-5">
-				
+			
+			<nav class="flex flex-col justify-center items-center flex-wrap md:flex md:flex-row md:gap-x-4 mt-5">
 				<Socials href="https://www.linkedin.com/in/fernando-chiesa/">
 					<LinkedInIcon class="size-6" />
 					LinkedIn
@@ -35,12 +40,27 @@ import MailIcon from '../components/icons/Mail.astro';
 					<GitHubIcon class="size-6" />
 					GitHub
 				</Socials>
-				<Socials>
+				<Socials href="mailto:fernandonchiesa@gmail.com">
 					<MailIcon class="size-6" />
 					fernandonchiesa@gmail.com
 				</Socials>
-
 			</nav>
-	</section>
+		</SectionContainer>
+		
+		<SectionContainer id="studies">
+			<h2 class="text-2xl font-semibold flex items-center mb-6 gap-x-2 mx-10 lg:ml-0">
+				<StudiesIcon class="size-6"/>
+				Estudios realizados
+			</h2>
+			<Studies />
+		</SectionContainer>
+
+		<SectionContainer id="projects">
+			<h2 class="text-2xl font-semibold flex items-center mb-6 gap-x-2 mx-10 lg:ml-0">
+				<ProjectsIcon class="size-6"/>
+				Proyectos
+			</h2>
+			<Projects />
+		</SectionContainer>
 	</main>
 </Layout>
